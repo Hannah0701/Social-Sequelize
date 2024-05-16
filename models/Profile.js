@@ -2,17 +2,12 @@
 //     - `bio`: A string
 //     - `profilePicture`: A string
 //     - `birthday`: A date formatted as a string
-const { db, DataTypes, Model } = require('../db/connection');
+const { db, DataTypes } = require('../db/connection');
 
-class Profile extends Model {};
-
-Profile.init({
+let Profile = db.define("profile",{
     bio: DataTypes.STRING,
     profilePicture: DataTypes.STRING,
     birthday: DataTypes.STRING
-}, {
-    sequelize: db,
-    modelName: 'profile'
 });
 
 module.exports = Profile;
